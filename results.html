@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="assets/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    <title>Rezultati analize</title>
+  </head>
+  <body>
+    <header>
+      <div id="loading">
+        <p>Vaš web sajt se analizira...</p>
+        <div id="fact"></div>
+      </div>
+    </header>
+    <main>
+      <section>
+        <div id="container-logo-label">
+          <div id="logo-results" class="hidden">
+            <a href="https://robotcode.me/">
+              <img
+                src="./assets/Logo.png"
+                class="result-logo-page"
+                alt="Robot Code Logo"
+              />
+            </a>
+          </div>
+          <div id="back-home" class="hidden">
+            <a href="index.html"
+              ><button class="button-style">Vratite se na početnu</button></a
+            >
+          </div>
+          <div id="container-for-link" class="hidden">
+            <div class="special-link-container">
+              <p>Analizirali ste:</p>
+              <span id="entered-url"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div id="error-message-exist" class="hidden"></div>
+      <div id="icons-mobile-desktop">
+        <div id="mobile-icon" class="performance-icon" style="display: none">
+          <div class="icon-container">
+            <img
+              src="assets/chart-simple.png"
+              class="icn-mobile"
+              alt="Mobile Icon"
+            />
+            <span>MOBILE</span>
+          </div>
+        </div>
+        <div id="desktop-icon" class="performance-icon" style="display: none">
+          <div class="icon-container">
+            <img src="assets/clock.png" class="icn-mobile" alt="Desktop Icon" />
+            <span>DESKTOP</span>
+          </div>
+        </div>
+      </div>
+      <div id="results-info" class="hidden">
+        <h1>Vaši rezultati</h1>
+        <p>
+          <span
+            >Ako se vaš sajt sporo učitava i prosječni rezultat analize bude
+            ispod 90, postoji velika</span
+          >
+          <span
+            >vjerovatnoća da će posjetioci napustiti sajt prije nego što imate
+            priliku da im</span
+          >
+          <span
+            >predstavite svoje usluge ili proizvode. Optimizacija brzine vašeg
+            sajta nije samo</span
+          >
+          pitanje boljeg korisničkog iskustva, već i ključni faktor za SEO.
+        </p>
+      </div>
+      <div id="performance-mobile-desktop">
+        <div class="all-performance">
+          <div class="circle-container-icon">
+            <canvas id="circle-progress-bar-mobile" class="hidden"></canvas>
+          </div>
+          <div
+            id="mobile-performance"
+            class="performance-results"
+            style="display: none"
+          >
+            <span id="mobile-performance-text"></span>
+            <div class="progress-bar-container">
+              <div id="mobile-progress-bar" class="progress-bar"></div>
+            </div>
+          </div>
+          <div class="circle-container-icon">
+            <canvas
+              id="circle-progress-bar-mobile-increased"
+              class="hidden"
+            ></canvas>
+          </div>
+          <div
+            id="mobile-performance-increased"
+            class="performance-results"
+            style="display: none"
+          >
+            <span id="mobile-performance-increased-text"></span>
+            <div class="progress-bar-container">
+              <div
+                id="mobile-progress-bar-increased"
+                class="progress-bar"
+              ></div>
+            </div>
+          </div>
+          <div class="circle-container-icon">
+            <canvas id="circle-progress-bar-desktop" class="hidden"></canvas>
+          </div>
+          <div
+            id="desktop-performance"
+            class="performance-results"
+            style="display: none"
+          >
+            <span id="desktop-performance-text"></span>
+            <div class="progress-bar-container">
+              <div id="desktop-progress-bar" class="progress-bar"></div>
+            </div>
+          </div>
+          <div class="circle-container-icon">
+            <canvas
+              id="circle-progress-bar-desktop-increased"
+              class="hidden"
+            ></canvas>
+          </div>
+          <div
+            id="desktop-performance-increased"
+            class="performance-results"
+            style="display: none"
+          >
+            <span id="desktop-performance-increased-text"></span>
+            <div class="progress-bar-container">
+              <div
+                id="desktop-progress-bar-increased"
+                class="progress-bar"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div id="mobile-logo-screen" class="hidden"></div>
+        <div id="desktop-logo-screen" class="hidden"></div>
+      </div>
+      <div id="buttons-container" class="hidden">
+        <div id="blur-overlay" class="hidden"></div>
+        <div class="buttons-for-popup">
+          <button id="button-like" class="button-style">ZADOVOLJNI</button>
+          <button id="button-not-like" class="button-style">
+            NEZADOVOLJNI
+          </button>
+        </div>
+      </div>
+      <div id="popup-overlay" class="hidden">
+        <button id="close-button-popup">X</button>
+        <div class="text-and-buttons">
+          <h2>
+            Da li te sigurni da ne želite<br />
+            da unaprijedite brzinu<br />
+            vaše web stranice?
+          </h2>
+          <p>
+            Poboljšanje brzine stranice nudite vašim posjetiocima bolje
+            korisničko iskustvo. Između ostalog, stranice sa dobrim rezultatima
+            se rangiraju bolje na Google listama i vidljivost vaše stranice, uz
+            našu pomoć moze biti bolja.
+          </p>
+          <div class="buttons-popup">
+            <button id="button-yes" class="button-style">POSJETITE SAJT</button>
+            <button id="button-contact" class="button-style">
+              KONTAKTIRAJTE NAS
+            </button>
+          </div>
+        </div>
+        <div class="services-social-media">
+          <h3>Naše usluge koje vam mogu pomoću u poboljšanju web stranice</h3>
+          <div class="seo-marketing-ads">
+            <div class="seo">
+              <a href=""> <img src="assets/SEO.png" alt="Ikonica SEO" /></a>
+              <span>SEO</span>
+              <img src="assets/arrow-right.png" alt="Strelica" class="arrow" />
+            </div>
+            <div class="digital-marketing">
+              <a href=""
+                ><img
+                  src="assets/digital-marketing.png"
+                  alt="Ikonica Digital Marketing"
+              /></a>
+              <span>Digitalni marketing</span>
+              <img src="assets/arrow-right.png" alt="Strelica" class="arrow" />
+            </div>
+            <div class="ads">
+              <a href=""
+                ><img src="assets/google-ads.png" alt="Ikonica Google ADS" /></a
+              ><span> Google ADS</span>
+              <img src="assets/arrow-right.png" alt="Strelica" class="arrow" />
+            </div>
+          </div>
+          <div class="popup-footer">
+            <h4>Pogledajte više</h4>
+            <div class="social-media-icons">
+              <a
+                href="https://www.linkedin.com/company/robotcode/mycompany/"
+                target="_blank"
+              >
+                <img src="assets/linkedin.png" alt="LinkedIn" />
+              </a>
+              <a href="https://www.instagram.com/robot.code/" target="_blank">
+                <img src="assets/instagram.png" alt="Instagram" />
+              </a>
+              <a href="https://www.facebook.com/robotcode.me" target="_blank">
+                <img src="assets/facebook.png" alt="Facebook" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="contact-form" class="hidden">
+        <div class="contanier-circle-bar">
+          <div class="circle-container-icon">
+            <canvas id="circle-progress-bar-contact" class="hidden"></canvas>
+          </div>
+          <div class="circle-container-icon">
+            <canvas id="circle-progress-bar-increased" class="hidden"></canvas>
+          </div>
+        </div>
+        <div class="contact-text">
+          <h4>Zatražite ponudu i poboljštajte performanse vašeg sajta</h4>
+          <p>
+            Želite da poboljšate brzinu učitavanja vašeg sajta? Unesite URL i
+            dobićete personalizovane sugestije za optimizaciju.
+          </p>
+        </div>
+        <button id="close-button">X</button>
+        <form id="contact-form-labels">
+          <label for="name">Ime i prezime</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email adresa</label>
+          <input type="email" id="email" name="email" required />
+          <button type="submit" class="button-style">POŠALJITE ZAHTIJEV</button>
+        </form>
+      </div>
+    </main>
+    <script src="script_results.js"></script>
+  </body>
+</html>
