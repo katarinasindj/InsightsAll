@@ -96,6 +96,7 @@ class AnalysisPage {
     this.circleProgressBarIncreased = document.getElementById(
       'circle-progress-bar-increased'
     );
+    this.iconsMobileDesktop = document.getElementById('icons-mobile-desktop');
     this.factElement = document.getElementById('fact');
   }
 
@@ -178,7 +179,7 @@ class AnalysisPage {
         !isClickOnOpenButton &&
         !isClickInsidePopup
       ) {
-        console.log('Closing due to global click');
+        console.log('Zatvaranje na globalni klik');
         _this.closeContactForm();
         _this.closePopup();
       }
@@ -631,6 +632,7 @@ class AnalysisPage {
     this.mobilePerformance.style.display = 'block';
     this.mobilePerformanceCircle.style.display = 'block';
     this.mobilePerformanceIncreasedCircle.style.display = 'block';
+    this.iconsMobileDesktop.classList.remove('hidden');
 
     this.desktopPerformance.style.display = 'none';
     this.desktopPerformanceCircle.style.display = 'none';
@@ -646,6 +648,7 @@ class AnalysisPage {
     this.desktopPerformance.style.display = 'block';
     this.desktopPerformanceCircle.style.display = 'block';
     this.desktopPerformanceIncreasedCircle.style.display = 'block';
+    this.iconsMobileDesktop.classList.remove('hidden');
 
     this.mobilePerformance.style.display = 'none';
     this.mobilePerformanceCircle.style.display = 'none';
