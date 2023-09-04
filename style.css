@@ -46,22 +46,26 @@ body::after {
     width: 100%;
   }
 }
-#loading p {
-  color: #ffffff;
-  padding-top: 25px;
-}
 #loading {
   display: none;
+  width: 40%;
+  margin: 20px auto;
+  text-align: center;
+  align-items: center;
+}
+#loading p {
+  color: #ffffff;
+}
+.loader {
   position: relative;
   height: 6px;
-  width: 35%;
   background-color: #f0f0f0;
   border-radius: 5px;
   text-align: center;
   align-items: center;
   margin: 30px auto;
 }
-#loading::after {
+.loader::after {
   content: '...';
   display: block;
   position: absolute;
@@ -602,8 +606,8 @@ p {
   }
 }
 @media (max-width: 768px) {
-  #fact {
-    display: none;
+  #loading {
+    width: 80%;
   }
   .buttons-for-popup {
     flex-direction: column;
