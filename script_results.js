@@ -139,6 +139,7 @@ class AnalysisPage {
       .getElementById('button-not-like')
       .addEventListener('click', function () {
         _this.showContactForm();
+        event.stopPropagation();
       });
 
     document
@@ -160,13 +161,26 @@ class AnalysisPage {
       });
 
     document.addEventListener('click', function (event) {
+      console.log('Global click event triggered');
       const isClickInsideContactForm = _this.contactForm.contains(event.target);
+      const isClickInsidePopup = _this.popupOverlay.contains(event.target);
       const isClickOnOpenButton =
         event.target.id === 'button-contact' ||
-        event.target.id === 'button-not-like';
+        event.target.id === 'button-not-like' ||
+        event.target.id === 'button-like';
 
-      if (!isClickInsideContactForm && !isClickOnOpenButton) {
+      console.log('isClickInsideContactForm:', isClickInsideContactForm);
+      console.log('isClickInsidePopup:', isClickInsidePopup);
+      console.log('isClickOnOpenButton:', isClickOnOpenButton);
+
+      if (
+        !isClickInsideContactForm &&
+        !isClickOnOpenButton &&
+        !isClickInsidePopup
+      ) {
+        console.log('Closing due to global click');
         _this.closeContactForm();
+        _this.closePopup();
       }
     });
 
@@ -647,11 +661,13 @@ class AnalysisPage {
     console.log('Funkcija showPopup je pozvana.');
     this.popupOverlay.classList.remove('hidden');
     this.blurOverlay.classList.remove('hidden');
+    console.log('Palim blur');
   }
 
   closePopup() {
     this.popupOverlay.classList.add('hidden');
     this.blurOverlay.classList.add('hidden');
+    console.log('Gasim blur');
   }
 
   showContactForm() {
@@ -659,6 +675,7 @@ class AnalysisPage {
     this.popupOverlay.classList.add('hidden');
     this.contactForm.classList.remove('hidden');
     this.blurOverlay.classList.remove('hidden');
+    console.log('Palim blur');
 
     let progressBar =
       this.mobileResult && this.mobileResult.score
@@ -696,6 +713,7 @@ class AnalysisPage {
 
   closeContactForm() {
     this.contactForm.classList.add('hidden');
+    console.log('Gasim blur');
     this.blurOverlay.classList.add('hidden');
   }
 
